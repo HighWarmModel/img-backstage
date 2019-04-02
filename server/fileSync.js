@@ -1,0 +1,8 @@
+const fs = require('fs')
+const path = require('path')
+console.log(__dirname)
+const filePath = path.resolve('./module/file')
+console.log(filePath)
+let data = fs.readFileSync(`${filePath}/test.txt`, 'UTF-8')
+console.log(data)
+console.log('end')
