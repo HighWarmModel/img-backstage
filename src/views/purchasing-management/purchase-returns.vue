@@ -1,11 +1,11 @@
-<!-- 配件采购 -->
+<!-- purchase-returns 采购退货 -->
 <template>
-  <div>配件采购</div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: 'partsPurchase',
+  name: 'purchaseReturns',
 
   data () {
     return {

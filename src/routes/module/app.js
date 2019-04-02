@@ -13,11 +13,37 @@ const About = {
   component: () => import(/* webpackChunkName: "About" */'@v/about/about.vue')
 }
 // 错误日志收集
-const ErrorStore = () => import(/* webpackChunkName: "ErrorStore" */'@v/error-store/error-store.vue')
+const ErrorStore = {
+  name: 'error_store',
+  path: '/error-store',
+  meta: {
+    hideInMenu: true,
+    icon: 'error_store' // 图标
+  },
+  component: () => import(/* webpackChunkName: "ErrorStore" */'@v/error-store/error-store.vue')
+}
+
 // 礼品采集
-const GiftsPurchase = () => import(/* webpackChunkName: "GiftsPurchase" */'@v/goods-purchase/gifts-purchase/gifts-purchase.vue')
+const GiftsPurchase = {
+  name: 'gifts_purchase',
+  path: '/gifts-purchase',
+  meta: {
+    hideInMenu: true,
+    icon: 'gifts_purchase' // 图标
+  },
+  component: () => import(/* webpackChunkName: "GiftsPurchase" */'@v/goods-purchase/gifts-purchase/gifts-purchase.vue')
+}
+
 // 配件采集
-const PartsPurchase = () => import(/* webpackChunkName: "PartsPurchase" */'@v/goods-purchase/gifts-purchase/gifts-purchase.vue')
+const PartsPurchase = {
+  name: 'gifts_purchase',
+  path: '/gifts-purchase',
+  meta: {
+    hideInMenu: true,
+    icon: 'gifts_purchase' // 图标
+  },
+  component: () => import(/* webpackChunkName: "PartsPurchase" */'@v/goods-purchase/gifts-purchase/gifts-purchase.vue')
+}
 // 个人信息
 const PersonalInformation = () => import(/* webpackChunkName: "personalInformation" */'@v/personal-information/personal-information.vue')
 // 权限设置

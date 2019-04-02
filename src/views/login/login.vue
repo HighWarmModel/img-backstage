@@ -20,6 +20,7 @@
 import { Card } from 'iview'
 import loginForm from '@/components/login-form'
 export default {
+  name: 'login',
   components: {
     loginForm,
     Card

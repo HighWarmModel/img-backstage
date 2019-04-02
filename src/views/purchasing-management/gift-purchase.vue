@@ -1,11 +1,11 @@
-<!-- 礼品采购 -->
+<!-- gift-purchase 礼品采购 -->
 <template>
   <div></div>
 </template>
 
 <script>
 export default {
-  name: 'giftsPurchase',
+  name: 'giftPurchase',
 
   data () {
     return {
