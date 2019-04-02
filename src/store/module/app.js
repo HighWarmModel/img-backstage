@@ -1,7 +1,8 @@
 export default {
   state: {
     errorList: [], // 日错误志列表
-    notReadErrorLog: false // 错误日志是否已读 true 未读
+    notReadErrorLog: false, // 错误日志是否已读 true 未读
+    breadCrumbList: []
   },
   getters: {},
   mutations: {
@@ -12,6 +13,10 @@ export default {
     // 设置否无日志是否已读
     APP_SETREADERRORSTATUS_MUTATE (state, status = true) {
       state.notReadErrorLog = status
+    },
+    // 获取面包屑
+    APP_SETBREADCRUMB_MUTATE (state, route) {
+
     }
   },
   actions: {

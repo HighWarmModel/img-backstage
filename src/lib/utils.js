@@ -97,26 +97,23 @@ function arrageObjToRouterTree (obj, parentId, times = 0, routers) {
   let arr = obj[parentId]
   let parentArr = []
   arr.forEach(items => {
+    const _routeObj = routers[items.component]
+    const meta = _routeObj.meta
     let id = items.id
     let routerObj = {
-      name: items.name, // 路由标识
-      path: items.path, // 路由名字
-      redirect: items.redirect, // 重定向
+      name: _routeObj.name, // 路由标识
+      path: _routeObj.path, // 路由名字
+      redirect: _routeObj.redirect, // 重定向
       meta: {
+        ...meta,
         id: items.id,
         parentId: items.parentId,
         title: items.title, // 标题
-        showInBread: items.hideInBread, // 面包屑是否存在
-        showInMenu: items.hideInMenu, // 左侧菜单是否显示
-        cache: items.cache, // 是否缓存
-        icon: items.icon, // 图标
         href: items.href, // 跳转到其它网站
         keywords: items.keywords, // 关键字用来搜索路由
         genre: items.genre, // 类型页面还是操作等等 page button tab
-        tag: items.tag, // 是否软删除
-        jurisdiction: items.Jurisdiction, // 权限
-        showChildren: items.showChildren, // 是否展示下级（当没有children的时候有这个参数也展示）
-        beforeCloseName: items.beforeCloseName // 关闭之前是否提示
+        delete: items.delete, // 是否软删除
+        jurisdiction: items.Jurisdiction // 权限
       }
     }
     if (items.genre === 'page') {
