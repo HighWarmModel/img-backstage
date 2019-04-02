@@ -19,6 +19,7 @@
 <script>
 import { Card } from 'iview'
 import loginForm from '@/components/login-form'
+import { mapAction } from 'vuex'
 export default {
   name: 'login',
   components: {
@@ -26,6 +27,7 @@ export default {
     Card
   },
   methods: {
+    ...mapAction([''])
     handleSubmit ({ userName, password }) {
       this.handleLogin({ userName, password }).then(res => {
         this.getUserInfo().then(res => {
