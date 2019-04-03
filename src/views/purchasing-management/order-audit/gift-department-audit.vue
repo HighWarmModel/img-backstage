@@ -1,6 +1,6 @@
 <!-- gift-department-audit 礼品部审核 -->
 <template>
-  <div></div>
+  <div>礼品部审核</div>
 </template>
 
 <script>

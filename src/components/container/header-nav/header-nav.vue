@@ -1,11 +1,11 @@
-<!-- procurement-department-audit 采购部审核 -->
+<!-- header-nav 顶部导航 -->
 <template>
-  <div>采购部审核</div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: 'procurementDepartmentAudit',
+  name: 'headerNav',
 
   data () {
     return {

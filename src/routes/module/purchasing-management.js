@@ -3,7 +3,7 @@
 // 礼品采购
 const GiftPurchase = {
   name: 'gift_purchase',
-  path: '/gift-purchase',
+  path: 'gift-purchase',
   meta: {
     icon: 'gift_purchase' // 图标
   },
@@ -12,7 +12,7 @@ const GiftPurchase = {
 // 订货建议
 const OrderProposals = {
   name: 'order_proposals',
-  path: '/order-proposals',
+  path: 'order-proposals',
   meta: {
     icon: 'order_proposals' // 图标
   },
@@ -21,7 +21,7 @@ const OrderProposals = {
 // 礼品订单
 const GiftOrder = {
   name: 'gift_order',
-  path: '/gift-order',
+  path: 'gift-order',
   meta: {
     icon: 'gift_order' // 图标
   },
@@ -30,7 +30,7 @@ const GiftOrder = {
 // 采购退货
 const PurchaseReturns = {
   name: 'purchase_returns',
-  path: '/purchase-returns',
+  path: 'purchase-returns',
   meta: {
     icon: 'purchase_returns' // 图标
   },
@@ -39,7 +39,7 @@ const PurchaseReturns = {
 // 异常单审核
 const AbnormalListAudit = {
   name: 'abnormal_list_audit',
-  path: '/abnormal-list-audit',
+  path: 'abnormal-list-audit',
   meta: {
     icon: 'abnormal_list_audit' // 图标
   },
@@ -48,7 +48,7 @@ const AbnormalListAudit = {
 // 礼品部审核
 const GiftDepartmentAudit = {
   name: 'gift_department_audit',
-  path: '/gift-department-audit',
+  path: 'gift-department-audit',
   meta: {
     icon: 'abnormal_list_audit' // 图标
   },
@@ -57,7 +57,7 @@ const GiftDepartmentAudit = {
 // 采购部审核
 const ProcurementDepartmentAudit = {
   name: 'procurement_department_audit',
-  path: '/procurement-department-audit',
+  path: 'procurement-department-audit',
   meta: {
     icon: 'procurement_department_audit' // 图标
   },

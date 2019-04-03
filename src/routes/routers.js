@@ -1,11 +1,13 @@
 import config from '@/config'
+import { arrageArrToObj, arrageObjToRouterTree } from '../lib/utils'
+import routers from './module'
 const { routerStorage } = config
-// import { arrageArrToObj, arrageObjToRouterTree } from '../lib/utils'
 let authRouterStorage = localStorage.getItem(routerStorage)
 let routerArr = []
 if (authRouterStorage) {
   authRouterStorage = JSON.parse(authRouterStorage)
   routerArr = [...routerArr, ...authRouterStorage]
+  routerArr = arrageObjToRouterTree(arrageArrToObj(authRouterStorage), 0, routers)
   routerArr.push({
     path: '/401',
     name: 'error_401',
@@ -14,14 +16,8 @@ if (authRouterStorage) {
     },
     component: () => import(/* webpackChunkName: "401" */'@v/error-page/401.vue')
   })
-  // routerArr = arrageObjToRouterTree(arrageArrToObj(authRouterStorage), 0)
 }
 let routes = [
-  {
-    name: 'container',
-    path: '/container',
-    component: () => import(/* webpackChunkName: "container" */'@c/container/container.vue')
-  },
   {
     name: 'login',
     path: '/login',
@@ -68,4 +64,5 @@ let routes = [
     component: () => import(/* webpackChunkName: "404" */'@v/error-page/404.vue')
   }
 ]
+console.log(routes)
 export default routes

@@ -31,7 +31,7 @@ function checkObjectTool (thing, type) {
  * }
  */
 function timeChangeoverTool (options) {
-  var dd = new Date()
+  var dd = new Date(0)
   var datetime = options.datetime || dd.getTime() // 防止有误差和浅拷贝
   var format = options.format
 
@@ -119,9 +119,20 @@ function reservedDecimalTool (num, fix) {
   fix = fix || 2 // 默认保留两位小数
   return (num - 0).toFixed(fix)
 }
+/**
+ * 延迟执行
+ * @param {number} delay 延迟时间
+ * @return {Promise}
+ */
+function delayedExecutionTool (delay) {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(), delay)
+  })
+}
 export {
   checkObjectTool, // 类型判断工具
   timeChangeoverTool, // 时间转换工具
   reservedDecimalTool, // 保留小数
-  judgementIntegerTool // 判断是否为整数
+  judgementIntegerTool, // 判断是否为整数
+  delayedExecutionTool // 延迟执行
 }

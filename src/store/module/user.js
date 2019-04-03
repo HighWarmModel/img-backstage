@@ -1,5 +1,5 @@
 import { getToken, setToken, removeToken, setRouterInLocalstorage } from '@/lib/utils'
-import {login, getUserInfo} from '@/api'
+import { login, getUserInfo } from '@/api'
 
 export default {
   state: {
@@ -33,15 +33,26 @@ export default {
   },
   actions: {
     async USER_GETUSERINFO_ACTION ({ commit, state }) {
-      commit('USER_SETUSERHEADIMAGE_MUTATE', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554206642289&di=86cbc869399b175c4bf50dc067acf5f1&imgtype=0&src=http%3A%2F%2Fdingyue.nosdn.127.net%2FY0b2B9MCCaqZBGTEhdix78AECPqwFsEiezuc0kwhYeDxL1536463553265.jpeg')
-      commit('USER_SETUSERID_MUTATE', 1)
-      commit('USER_SETUSERNAME_MUTATE', '锋哥')
-      setRouterInLocalstorage()
+      let res = await getUserInfo()
+      if (res.code === 1) {
+        commit('USER_SETUSERHEADIMAGE_MUTATE', res.data.avator)
+        commit('USER_SETUSERID_MUTATE', res.data.user_id)
+        commit('USER_SETUSERNAME_MUTATE', res.data.name)
+        setRouterInLocalstorage(res.data.access)
+      }
+      return res
     },
     // 登录
     async USER_LOGIN_ACTION ({ commit, dispatch }, { userName, password }) {
-      commit('setTokenMutate', 123456)
-      await 
+      let res = await login({ account: userName, password })
+      if (res.code === 1) {
+        let res1 = await dispatch('USER_GETUSERINFO_ACTION')
+        if (res1.code === 1) {
+          commit('USER_SETTOKEN_MUTATE', res.data.token)
+        }
+        return res1
+      }
+      return res
     },
     // 登出去除相关信息
     async USER_LOGOUT_ACTION ({ state, commit }) {

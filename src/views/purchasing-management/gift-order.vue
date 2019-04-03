@@ -1,6 +1,6 @@
 <!-- gift-order 礼品订单 -->
 <template>
-  <div></div>
+  <div>礼品订单</div>
 </template>
 
 <script>

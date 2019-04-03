@@ -1,6 +1,6 @@
 <!-- abnormal-list-audit 异常单审核 -->
 <template>
-  <div></div>
+  <div>异常单审核</div>
 </template>
 
 <script>

@@ -1,4 +1,5 @@
 
+import { delayedExecutionTool } from '@/lib/tools'
 const huge = {
   name: '胡哥',
   user_id: 1,
@@ -9,7 +10,7 @@ const huge = {
     keywords: '采购管理',
     title: '采购管理',
     genre: 'page',
-    component: 'GiftPurchase'
+    component: 'PurchasingManagement'
   }, {
     id: 2,
     parentId: 1,
@@ -51,7 +52,7 @@ const huge = {
     title: '订单审核',
     keywords: '订单审核',
     genre: 'page',
-    component: 'AbnormalListAudit'
+    component: 'OrderAudit'
   }, {
     id: 8,
     parentId: 7,
@@ -73,29 +74,35 @@ const huge = {
 export const login = req => {
   return new Promise((resolve, reject) => {
     if (req.account.toString() === '1' && req.password.toString() === '1') {
-      resolve({
-        code: 1,
-        data: {
-          token: 123456
-        },
-        message: '登录成功'
+      delayedExecutionTool(1000).then(() => {
+        resolve({
+          code: 1,
+          data: {
+            token: 123456
+          },
+          message: '登录成功'
+        })
       })
     } else {
-      resolve({
-        code: 2,
-        message: '账号或密码错误！'
+      delayedExecutionTool(1000).then(() => {
+        resolve({
+          code: 2,
+          message: '账号或密码错误！'
+        })
       })
     }
   })
 }
 export const getUserInfo = req => {
   return new Promise((resolve) => {
-    resolve({
-      code: 1,
-      data: {
-        ...huge
-      },
-      message: '登录成功'
+    delayedExecutionTool(1000).then(() => {
+      resolve({
+        code: 1,
+        data: {
+          ...huge
+        },
+        message: '登录成功'
+      })
     })
   })
 }

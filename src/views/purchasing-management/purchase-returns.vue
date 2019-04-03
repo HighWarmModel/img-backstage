@@ -1,6 +1,6 @@
 <!-- purchase-returns 采购退货 -->
 <template>
-  <div></div>
+  <div>采购退货</div>
 </template>
 
 <script>

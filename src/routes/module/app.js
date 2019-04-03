@@ -1,7 +1,6 @@
 
 /** ******************************** 组件 ******************/
-const Container = () => import(/* webpackChunkName: "container */'@c/Container')
-const ParentView = () => import(/* webpackChunkName: "parent-view" */'@c/parent-view')
+// import Container from ''
 /** ******************************** 页面 ******************/
 // 关于
 const About = {
@@ -23,33 +22,6 @@ const ErrorStore = {
   component: () => import(/* webpackChunkName: "ErrorStore" */'@v/error-store/error-store.vue')
 }
 
-// 礼品采集
-const GiftsPurchase = {
-  name: 'gifts_purchase',
-  path: '/gifts-purchase',
-  meta: {
-    hideInMenu: true,
-    icon: 'gifts_purchase' // 图标
-  },
-  component: () => import(/* webpackChunkName: "GiftsPurchase" */'@v/goods-purchase/gifts-purchase/gifts-purchase.vue')
-}
-
-// 配件采集
-const PartsPurchase = {
-  name: 'gifts_purchase',
-  path: '/gifts-purchase',
-  meta: {
-    hideInMenu: true,
-    icon: 'gifts_purchase' // 图标
-  },
-  component: () => import(/* webpackChunkName: "PartsPurchase" */'@v/goods-purchase/gifts-purchase/gifts-purchase.vue')
-}
-// 个人信息
-const PersonalInformation = () => import(/* webpackChunkName: "personalInformation" */'@v/personal-information/personal-information.vue')
-// 权限设置
-const JurisdictionSet = () => import(/* webpackChunkName: "JurisdictionSet" */'@v/settings/jurisdiction-set.vue')
-// 用户列表
-const UsersList = () => import(/* webpackChunkName: "userList" */'@v/settings/users-list.vue')
 // import { arrageObjToRouterTree, arrageArrToObj } from '@/lib/utils'
 /**
  *
@@ -75,13 +47,6 @@ const UsersList = () => import(/* webpackChunkName: "userList" */'@v/settings/us
       component: 如果有请使用驼峰命名(首字母大写)没有的话代表是多级目录 // 后台配
  */
 export default {
-  Container,
-  ParentView,
   About, // 关于
-  ErrorStore, // 错误日志收集
-  PersonalInformation, // 个人信息
-  GiftsPurchase, // 礼品采集
-  PartsPurchase, // 配件采集
-  JurisdictionSet, // 权限设置
-  UsersList// 用户列表
+  ErrorStore // 错误日志收集
 }

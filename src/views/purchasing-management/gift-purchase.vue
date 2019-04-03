@@ -1,6 +1,6 @@
 <!-- gift-purchase 礼品采购 -->
 <template>
-  <div></div>
+  <div>礼品采购</div>
 </template>
 
 <script>

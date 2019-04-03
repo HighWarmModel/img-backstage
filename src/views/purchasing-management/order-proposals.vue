@@ -1,6 +1,6 @@
 <!-- order-proposals 订货建议 -->
 <template>
-  <div></div>
+  <div>订货建议</div>
 </template>
 
 <script>
