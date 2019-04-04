@@ -106,7 +106,7 @@ function componentNameConversion (name) {
  * @param {JSON} routers 前台所有路由
  * @return {Array<JSON>} [{name,path,redirect,meta}]
  */
-function arrageObjToRouterTree (obj, parentId, routers, times = 0, way) {
+function arrageObjToRouterTree ({ obj, parentId, routers, times = 0, way, pathRoute = {} }) {
   let arr = obj[parentId]
   let parentArr = []
   arr.forEach(items => {
@@ -142,8 +142,9 @@ function arrageObjToRouterTree (obj, parentId, routers, times = 0, way) {
           routerObj.component = () => import('@c/parent-view')
         }
         routerObj.meta.way = way ? `${way}/${routerObj.path}` : routerObj.path
-        routerObj.children = arrageObjToRouterTree(obj, id, routers, times + 1, routerObj.meta.way)
+        routerObj.children = arrageObjToRouterTree({ obj, parentId: id, routers, times: times + 1, way: routerObj.meta.way, pathRoute })
       } else if (items.component) {
+        pathRoute[routerObj.name] = routerObj
         routerObj.meta.way = way ? `${way}/${routerObj.path}` : routerObj.path
         routerObj.component = routers[items.component].component
       }

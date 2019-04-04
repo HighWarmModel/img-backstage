@@ -7,7 +7,6 @@ import './assets/font/iconfont.css'
 import 'iview/dist/styles/iview.css'
 
 Vue.config.productionTip = false
-
 new Vue({
   router,
   store,
