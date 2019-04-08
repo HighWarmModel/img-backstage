@@ -2,6 +2,11 @@
 const Login = {
   name: 'login',
   path: '/login',
+  meta: {
+    hideInMenu: true,
+    title: '首页',
+    notCache: true
+  },
   component: () => import(/* webpackChunkName: "login" */'@v/login/login')
 }
 // 首页

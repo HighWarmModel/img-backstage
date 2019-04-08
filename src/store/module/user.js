@@ -1,4 +1,4 @@
-import { getToken, setToken, removeToken, setRouterInLocalstorage } from '@/lib/utils'
+import { getToken, setToken, removeToken, setRouterInLocalstorage, getRouterInLocalstorage } from '@/lib/utils'
 import { login, getUserInfo } from '@/api'
 
 export default {
@@ -6,10 +6,17 @@ export default {
     token: getToken(), // token 登录会话
     userId: '', // 用户id
     userName: '', // 用户名字
-    userHeadImage: '' // 用户头像
+    userHeadImage: '', // 用户头像
+    access: getRouterInLocalstorage()
   },
-  getters: {},
+  getters: {
+  },
   mutations: {
+    // 设置有权限的路由
+    USER_SETACCESS_MUTATE (state, access) {
+      state.access = access
+      setRouterInLocalstorage(access)
+    },
     // 设置用户头像
     USER_SETUSERHEADIMAGE_MUTATE (state, headImgPath) {
       state.userHeadImage = headImgPath
@@ -22,6 +29,7 @@ export default {
     USER_SETUSERNAME_MUTATE (state, userName) {
       state.userName = userName
     },
+    // 设置token
     USER_SETTOKEN_MUTATE (state, token) {
       state.token = token
       if (token) {
@@ -38,7 +46,7 @@ export default {
         commit('USER_SETUSERHEADIMAGE_MUTATE', res.data.avator)
         commit('USER_SETUSERID_MUTATE', res.data.user_id)
         commit('USER_SETUSERNAME_MUTATE', res.data.name)
-        setRouterInLocalstorage(res.data.access)
+        commit('USER_SETACCESS_MUTATE', res.data.access)
       }
       return res
     },

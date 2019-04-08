@@ -1,6 +1,6 @@
 <!-- SideMenu -->
 <template>
-  <div></div>
+  <div class="side-menu"></div>
 </template>
 
 <script>

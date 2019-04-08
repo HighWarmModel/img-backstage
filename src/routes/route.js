@@ -2,6 +2,7 @@ import config from '@/config'
 import { arrageArrToObj, arrageObjToRouterTree } from '../lib/utils'
 import routers from './module'
 import { Login, Home, Error401, Error500, Error404 } from './baseRoute'
+import store from '@/store'
 const { routerStorage } = config
 let authRouterStorage = localStorage.getItem(routerStorage)
 let routerArr = []
@@ -38,6 +39,7 @@ pathRoute = {
   [Error500.name]: Error500,
   [Error404.name]: Error404
 }
+store.commit('APP_SETMENULIST_MUTATE', routes)
 export {
   routes,
   pathRoute
